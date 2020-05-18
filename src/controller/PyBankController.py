@@ -1,11 +1,16 @@
 from src.model.Account import Account
 from src.utility.InputValidatorUtility import InputValidatorUtility
+from src.service.PyBankService import PyBankService
+
 import sys
 
 
 class PyBankController:
 
-    failedAttempt = 0
+    userAccounts = {}
+    failedAttempt: int = 0
+
+    service: PyBankService = PyBankService()
 
     def __init__(self):
         pass
@@ -17,7 +22,20 @@ class PyBankController:
 
     def performOperation(self, value):
         if not value == 8:
-            pass
+            if value == 1:
+                pass
+            elif value == 2:
+                pass
+            elif value == 3:
+                pass
+            elif value == 4:
+                pass
+            elif value == 5:
+                pass
+            elif value == 6:
+                self.closeAccount()
+            elif value == 7:
+                pass
         else:
             print("Thank you for banking with us.")
             sys.exit(0)
@@ -49,3 +67,7 @@ class PyBankController:
             else:
                 print(validationResult, "\nPlease try again")
                 self.displayOptions()
+
+    def closeAccount(self):
+        print(self.service.closeAccount(self.userAccounts, 1234))
+        pass
